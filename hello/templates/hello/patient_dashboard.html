@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+</head>
+<body>
+    <h1>Welcome {{ request.user.username }}</h1>
+    <h2>Your Doctors</h2>
+    {% for dr in assigned_doctors %}
+    <li>
+        <a href="{% url 'doctor_scans' doctor_id=dr.doctor.id %}">{{ dr.doctor.username }}</a>
+    </li>
+    {% empty %}
+    <li>No doctors assigned yet.</li>
+    {% endfor %}
+
+    <a href="{% url 'logout' %}">Logout</a>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends "hello/layout.html" %}
+{% block title %}
+About
+{% endblock %}
+{% block content %}
+<p>About page for the Visual Studio Code Django tutorial.</p>
+<a href="{% url 'logout' %}">Logout</a>
+{% endblock %}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+</head>
+<body>
+    <h1>Welcome Dr. {{ request.user.username }}</h1>
+    <h2>Assign a Patient</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Assign</button>
+    </form>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    <script>
+        setTimeout(function () {
+          const messages = document.querySelectorAll(".messages li");
+          messages.forEach(function (msg) {
+            msg.style.transition = "opacity 0.5s ease-out";
+            msg.style.opacity = 0;
+            setTimeout(() => msg.remove(), 500); // remove after fade
+          });
+        }, 3000); // 3 seconds delay before fade starts
+      </script>
+    {% endif %}
+
+    <h2>Your Patients</h2>
+
+    <ul>
+        {% for pd in assigned_patients %}
+        <li>
+          <a href="{% url 'patient_scans' patient_id=pd.patient.user.id %}">{{ pd.patient.user.username }}</a>
+        </li>
+        {% empty %}
+        <li>No patients assigned yet.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'logout' %}">Logout</a>
+    <a href="{% url 'upload_scan' %}">Upload a Scan</a>
+</body>
+</html>

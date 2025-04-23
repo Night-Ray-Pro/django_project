@@ -1,0 +1,32 @@
+
+
+<!DOCTYPE html>
+{% load bootstrap4 %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/formtest.min.css' %}" />
+</head>
+<body>
+    
+    <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow rounded" style="min-width: 300px; max-width: 400px; width: 100%;">
+    <h2>Register</h2>     
+    <form method="POST">
+        {% csrf_token %}
+        {% bootstrap_field form.username %}
+        {% bootstrap_field form.email %}
+        {% bootstrap_field form.password %}
+        {% bootstrap_field form.password_confirm %}
+        
+        <button class="btn btn-primary"  type="submit">Register</button>
+    </form>
+    <div>
+    </div>
+
+</body>
+</html>

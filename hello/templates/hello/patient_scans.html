@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scans for {{ patient.username }}</title>
+</head>
+<body>
+    <h1>Scans regarding patient {{ patient.username }}</h1>
+    {% if scans %}
+    <ul>
+        {% for scan in scans %}
+        <li>
+            {{ scan.scan_type }} - <a href="{% url 'scan_detail' scan.id %}">View Details</a>
+            (uploaded on {{ scan.upload_date|date:"Y-m-d H:i" }})
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No scans uploaded for this patient yet.</p>
+    {% endif %}
+    <a href="{% url 'doctor_dashboard' %}">← Back to Dashboard</a>
+</body>
+</html>
