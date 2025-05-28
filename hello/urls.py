@@ -24,6 +24,19 @@ urlpatterns = [
     path('download-scan/<int:scan_id>/', views.download_scan, name='download_scan'),
     path('doctor-dashboard/patient_scans/<int:patient_id>', views.patient_scans, name='patient_scans'),
     path('scan/<int:scan_id>', views.scan_detail, name="scan_detail"),
+    path('patient_search/', views.patient_search, name="patient_search"),
+    path('doctor_search/', views.doctor_search, name="doctor_search"),
+    path('doctor_searchAD/', views.doctor_searchAD, name="doctor_searchAD"),
+    path('add_reminder/', views.add_reminder, name='add_reminder'),
+    path('update_reminder/<int:reminder_id>/', views.update_reminder, name='update_reminder'),
+    path('delete_reminder/<int:reminder_id>/', views.delete_reminder, name='delete_reminder'),
+    path('settings-dr/', views.settingsDr, name='settingsDr'),
+    path('settings-p/', views.settingsP, name='settingsP'),
+    path('add_patient/<int:patient_id>/', views.add_patient, name='add_patient'),
+    path('remove_patient/<int:patient_id>/', views.remove_patient, name='remove_patient'),
+    path('scan_searchDr/', views.scan_search_dr, name='scan_searchDr'),
+    path('scan_searchPt/', views.scan_search_pt, name='scan_searchPt'),
+    path('scan/<int:scan_id>/download-pdf/', views.generate_scan_pdf, name='generate_scan_pdf'),
 ]
 
 

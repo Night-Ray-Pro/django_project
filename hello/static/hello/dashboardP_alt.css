@@ -1,0 +1,701 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #eeeeee ;
+}
+
+.dashUBod {
+    position: relative;
+    width: 1250px;
+    height: 99px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+    margin-bottom: 8px;
+}
+
+.dashLBod {
+    position: relative;
+    width: 1250px;
+    height: 674px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+}
+
+.overlayTop {
+    position: absolute; /* or 'fixed' if you want it to stay during scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlayBottom {
+    position: absolute; /* or 'fixed' if you want it to stay during scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-wrapper {
+  position: relative;
+  margin-left: 22px;
+  width: 968px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.search-input {
+    width: 908px;
+    height: 65px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    border: 2px solid #D9D9D9;
+    font-size: 24px;
+}
+input.search-input {
+    padding-left: 60px;
+}
+.search-input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.ovPad {
+    margin-top: 5px;
+    position: absolute;
+    background-color: white;
+    border: 2px solid #D9D9D9;
+    border-radius: 20px;
+    width: 100%;
+    z-index: 1000;
+    display: none; /* hidden on load */
+}
+.search-overlay {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+    /* background-color: red; */
+    display: none;
+    width: 950px;
+    padding-left: 10px;        /* Add space */
+    box-sizing: content-box; 
+}
+.search-overlay::-webkit-scrollbar {
+    width: 6px;
+}
+
+.search-overlay::-webkit-scrollbar-track {
+    background: transparent; /* Hide the track */
+}
+
+.search-overlay::-webkit-scrollbar-thumb {
+    background-color: #aaa;  /* Color of the scrollbar thumb */
+    border-radius: 10px;
+    border: none;            /* Remove inner border if needed */
+}
+.search-overlay ul {
+    list-style: none;       /* removes the bullet */
+    padding-left: 0;        /* removes indentation */
+    margin: 0;              /* optional: reset default margin */
+}
+.search-overlay li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #ddd; /* light grey separator */
+    cursor: pointer;
+}
+
+.search-overlay li:last-child {
+    border-bottom: none; /* optional: remove border from last item */
+}
+.search-item {
+    padding: 8px 12px;
+}
+.search-item:hover {
+    background-color: #f0f0f0;
+}
+.TypeDisp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #D9D9D9;
+    width: 80px;
+    border-radius: 15px;
+}
+.search-link {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+}
+.firstItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    
+}
+
+.secondItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    
+}
+
+.thirdItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    
+}
+
+.thirdItemAlt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 170px;
+    
+}
+
+.fourthItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    
+}
+
+.fifthItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    
+}
+.vertSearchSep {
+    height: 15px;
+    width: 1px;
+    background-color: #D9D9D9;
+}
+
+.descItem {
+    text-align: left;
+    width: 320px;         /* Or whatever width you want */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.logoutBox {
+    margin-left: 22px;
+    width: 127px;
+    height: 65px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutButton {
+    margin-left: 25px;
+}
+
+.rowAlign1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1122px;
+    height: 93px;
+}
+
+.sepLine {
+    width: 1122px;
+    height: 2px;
+    background: #DEDCDC;
+    margin-top: 24px;
+    margin-bottom: 29px;
+}
+
+.rowAlign2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1122px;
+    height: 85px;
+    margin-bottom: 29px;
+}
+
+.rowAlign3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1122px;
+    height: 471px;
+    
+}
+
+.helloBox {
+    width: 390px;
+    height: 93px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #6C63FF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoBox {
+    width: 732px;
+
+    height: 140px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.dateDisplay {
+  font-size: 25px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.day-suffix {
+  font-size: 15px;
+  vertical-align: super;
+  line-height: 1;
+  margin-left: 2px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.dateDisplay2 {
+  font-size: 25px;
+  color: #ffffff;
+  
+}
+
+.day {
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.helloBoxDate {
+    display: flex;
+    flex-direction: column;
+     align-items: flex-end;
+    justify-content: right;
+    
+    
+}
+
+.helloBoxName {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    width: 190px;
+    
+}
+
+.infoBoxName {
+    color: #FFF;
+    font-family: Sen;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.infoBoxWelcome{
+    color: #FFF;
+    font-family: Sen;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.quote {
+    color: #ffffff;
+    font-family: Sen;
+    font-size: 19px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.dashboardText {
+    margin-left: 15px;
+    color: #000;
+    font-family: Sen;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.dashboardTextColumn {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.adaptive-box {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    display: inline-block;      /* Shrinks to fit content */
+    max-width: 700px;           /* Maximum allowed width */
+    font-family: Sen;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    word-wrap: break-word;      /* Breaks long words */
+    white-space: normal;        /* Allows wrapping */
+    height: 45px;
+    flex-shrink: 0; 
+    border-radius: 30px;
+    border: 2px solid #D9D9D9;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    margin-top: 30px;
+}
+
+.totalPatients {
+    width: 205px;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.totalPatientsText {
+    margin-left: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.totalPatientsText2 {
+    margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.patientNum {
+    
+    text-align: center;
+    font-family: Sen;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.patientText {
+    color: #CAC4C4;
+    text-align: center;
+    font-family: Sen;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.timeline {
+    width: 621px;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    margin-left: 36px;
+
+}
+
+.iconBox {
+    width: 190px;
+    height: 93px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    margin-left: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.timeline {
+  position: relative;
+  width: 621px;
+  height: 85px;
+  border-radius: 15px;
+  border: 2px solid #D9D9D9;
+  margin-left: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  user-select: none;
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    color: #cac9c9;
+    text-align: center;
+    font-family: Sen;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+}
+
+.timeline-labels .label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  position: relative;
+}
+
+/* SVG container to keep the line */
+.timeline-labels svg {
+  display: block;
+  margin-bottom: 5px;
+  height: 53px;
+  width: 1px;
+}
+
+.timeline-labels span {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Red dot vertically centered overlapping the lines */
+.timeline-dot {
+  position: absolute;
+  top: 40%;
+  width: 47px;      /* match SVG width */
+  height: 47px;     /* match SVG height */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.quickPad {
+    padding-top: 4px;
+    padding-left: 2px;
+}
+
+.bottomBox {
+    width: 342px;
+    height: 471px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.bottomBoxM {
+    width: 342px;
+    height: 471px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    margin-left: 42px;
+    margin-right: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.bottomBoxText {
+    color: #000;
+    text-align: center;
+    font-family: Sen;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    width: 298px;
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    
+}
+
+.boxList {
+    list-style-type: none;
+    height: 425px;
+    width: 320px;
+    padding-left: 0;
+    margin: 0;
+    margin-left: 22px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* REMOVE display: flex and flex-direction */
+}
+.boxList li {
+    position: relative;
+    height: 55px;
+    width: 298px;
+    border-bottom: 1px solid #D9D9D9;
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.recentPatientsLink {
+    text-decoration: none;
+    color: #000;
+}
+
+.tempRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.adedBut{
+        border: none;      /* Remove border */
+    outline: none;     /* Remove focus outline */
+    background: none;  /* Remove background if any */
+    padding: 0;        /* Optional: remove padding if needed */
+    cursor: pointer;   /* Change cursor on hover */
+}
+button.adedBut:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.bottomBoxText {
+    color: #000;
+    text-align: center;
+    font-family: Sen;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    width: 260px;
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    
+}
+
+.reminderBox {
+    width: 298px;
+    height: 40px;
+    flex-shrink: 0;
+    text-align: center;
+    color: #000;
+    text-align: center;
+    font-family: Sen;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+}
+
+
+.reminderBox:focus {
+  outline: none;        /* removes the default outline */
+  box-shadow: none;     /* removes any glow shadow */
+  border-color: initial; /* optionally reset border color if changed on focus */
+}
+
+.overlayTest {
+  position: absolute;
+  top: 5px;
+  left: 270px;
+  width: 20px;       /* full container width */
+  height: 20px;      /* full container height */
+  
+  
+}
+
+button.delete-btn {
+    display: none;
+    border: none;      /* Remove border */
+    outline: none;     /* Remove focus outline */
+    background: none;  /* Remove background if any */
+    padding: 0;        /* Optional: remove padding if needed */
+    cursor: pointer;   /* Change cursor on hover */
+}
+
+button.delete-btn:focus {
+  outline: none;
+  box-shadow: none;
+}

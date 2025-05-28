@@ -1,0 +1,246 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlayLoginForm {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 403px;
+    height: 456px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    border: 2px solid #DDDADA;
+    background: #FFF;
+
+}
+
+.loginText {
+    display: flex;
+    width: 329px;
+    height: 30px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 6px;
+}
+
+.sepLine {
+    margin-top: 24px;
+    margin-bottom: 24px;
+    width: 343px;
+    height: 2px;
+    background: #DDDADA;
+}
+
+.sepLine-reg {
+    margin-top: 24px;
+    margin-bottom: 11px;
+    width: 343px;
+    height: 2px;
+    background: #DDDADA;
+}
+
+.custom-input {
+    border: none;
+    width: 333px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #B8B4F5;
+    margin-bottom: 24px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 10px;
+    color: #FFF;
+}
+
+.custom-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #7A75D1; /* subtle glow or border */
+    border: 1px solid #7A75D1;
+}
+
+.custom-input::placeholder {
+    color: #dfe0f5; /* Replace with your desired color */
+    opacity: 1;     /* Optional: make sure it's not semi-transparent */
+}
+
+.custom-input-reg {
+    border: none;
+    width: 333px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #B8B4F5;
+    margin-bottom: 11px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding-left: 10px;
+    color: #FFF;
+}
+
+.custom-input-reg:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #7A75D1; /* subtle glow or border */
+    border: 1px solid #7A75D1;
+}
+
+.custom-input-reg::placeholder {
+    color: #dfe0f5; /* Replace with your desired color */
+    opacity: 1;     /* Optional: make sure it's not semi-transparent */
+}
+
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+}
+
+/* Hide visually, but keep for validation */
+.custom-checkbox input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 29px;
+    height: 29px;
+    margin: 0;
+    z-index: 2; /* keep it clickable */
+    cursor: pointer;
+}
+
+/* Custom style visible to user */
+.custom-checkbox .checkbox-style {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 29px;
+    height: 29px;
+    border-radius: 10px;
+    background: #B8B4F5;
+    z-index: 1;
+}
+
+/* Optional checkmark on checked */
+.custom-checkbox input[type="checkbox"]:checked + .checkbox-style::after {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkboxWrapper {
+    margin-left: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    
+}
+
+.checkboxText {
+    margin-top: 5px;
+    margin-left: 50px;
+    color: #000;
+    text-align: center;
+    font-family: Sen;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.loginButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 343px;
+    height: 50px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #5E14C6;
+    color: #FFF;
+    text-align: center;
+    font-family: Sen;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    margin-top: 24px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+/* Hover effect: slightly brighter */
+.loginButton:hover {
+    background: #712de0;
+}
+
+/* Active (clicked) effect: press in */
+.loginButton:active {
+    transform: scale(0.98);
+    background: #4d0fa9;
+}
+
+.registerButtonBox {
+    margin-top: 30px;
+    display: flex;
+    width: 300px;
+    height: 57px;
+    flex-direction: row;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-family: Sen;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.registerLink {
+    margin-left: 40px;
+    color: #423895;
+    text-align: center;
+    font-family: Sen;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-decoration: none;
+}

@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from hello.models import LogMessage, PatientDoctor, Profile, Scan, ScanComment
+from hello.models import LogMessage, PatientDoctor, Profile, Scan, ScanComment, DoctorInfo
 
 class LogMessageForm(forms.ModelForm):
     class Meta:
@@ -65,3 +65,30 @@ class ScanCommentForm(forms.ModelForm):
         widgets = {
             'text': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Enter your message...'}),
         }
+
+class DoctorSettingsForm(forms.ModelForm):
+    username = forms.CharField(max_length=150)
+    email = forms.EmailField()
+
+    class Meta:
+        model = DoctorInfo
+        fields = ['specialization', 'hospital_name', 'hospital_address', 'consultation_start', 'consultation_end', 'photo', 'social_security_number', 'home_address', 'city', 'phone_number']
+        widgets = {
+            'consultation_start': forms.TimeInput(format='%H:%M', attrs={'type': 'time'}),
+            'consultation_end': forms.TimeInput(format='%H:%M', attrs={'type': 'time'}),
+        }
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user')
+        super().__init__(*args, **kwargs)
+        self.fields['username'].initial = user.username
+        self.fields['email'].initial = user.email
+
+    def save(self, commit=True):
+        doctor_info = super().save(commit=False)
+        user = doctor_info.user
+        user.username = self.cleaned_data['username']
+        user.email = self.cleaned_data['email']
+        if commit:
+            user.save()
+            doctor_info.save()
+        return doctor_info

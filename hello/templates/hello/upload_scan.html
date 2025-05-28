@@ -1,17 +1,409 @@
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Scans</title>
+    {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/uploadScan.css' %}" />
 </head>
 <body>
-    <a href="{% url 'doctor_dashboard' %}">Back</a>
+    <div class="dashUBod">
+        <div class="overlayTop">
+            <a class="logoCorection" href="{% url 'patient_dashboard' %}">
+            <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="75" height="75" rx="15" fill="#6C63FF"/>
+            <path d="M44 8C46.2091 8 48 9.79086 48 12V28H64C66.2091 28 68 29.7909 68 32V44C68 46.2091 66.2091 48 64 48H48V64C48 66.2091 46.2091 68 44 68H32C29.7909 68 28 66.2091 28 64V48H12C9.79086 48 8 46.2091 8 44V32C8 29.7909 9.79086 28 12 28H28V12C28 9.79086 29.7909 8 32 8H44Z" fill="white"/>
+            <path d="M40.5 60.5C40.1878 62.061 38.1259 63.7686 37.2926 63.9353C36.5413 64.1776 36.4864 63.0477 37.2926 61.4353C38.7926 58.4353 36.0604 57.703 34.2926 55.9353C31.2926 52.9353 30.3794 46.7515 38.2926 42.4352C43.7926 39.4352 43.503 37.2904 37.7926 34.4352C34.7926 32.9352 29.7301 27.9352 31.2926 22.9352C32.8045 19.5294 34.5852 18.5567 37.7926 18.5284C40.15 18.5075 40.6134 18.5284 42.5 19C44 19.375 44.5146 21.9647 44 22.5C43 22.9352 41.1108 23.3185 39.7926 22.4352C35.7926 21.9352 32.5629 25.7949 41.7926 31.4352C50.7926 36.9352 45.2926 43.6852 38.7926 46.9352C34.7926 48.9352 35.7926 52.9353 37.7926 54.4353C39.7926 55.9353 41 58 40.5 60.5Z" fill="#6C63FF"/>
+            </svg>
+            </a>
+            <div class="infoBox2">
+                    <div class="dashboardTextColumn">
+                        <!-- <div class="dashboardText">Scan Search</div> -->
+                        <a class="noUnderline" href="{% url 'scan_searchDr' %}">
+                        <div class="dashboardText">Add Scan
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="23" viewBox="0 0 14 23" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8553 12.8553C13.6037 12.1068 13.6037 10.8932 12.8553 10.1447L3.27196 0.561372C2.52345 -0.187124 1.30989 -0.187124 0.561373 0.561372C-0.187124 1.30989 -0.187124 2.52344 0.561373 3.27196L8.78945 11.5L0.561373 19.7281C-0.187124 20.4765 -0.187124 21.6901 0.561373 22.4386C1.30989 23.1871 2.52345 23.1871 3.27196 22.4386L12.8553 12.8553Z" fill="black"/>
+                            </svg>
+                        </div>
+                        </a>
+                        
+                    </div>
+                    
+                    
+                    
+                </div>
+                <div class="helloBox">
+                    <div id="currentTime" class="dateDisplay2"></div>
+                    <div class="vertSep"></div>
+                    <div class="dateDisplay"><span id="day"></span></div>
+                    <div class="dateDisplay2" id="monthYear"></div>
+                </div>
+            
+            <div class="logoutBox">
+                <a href="{% url 'settingsP' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                    <path d="M13.5001 12.6162C15.0025 12.6162 16.4433 11.9516 17.5057 10.7686C18.568 9.58562 19.1648 7.98113 19.1648 6.30811C19.1648 4.6351 18.568 3.0306 17.5057 1.8476C16.4433 0.664603 15.0025 0 13.5001 0C11.9977 0 10.5568 0.664603 9.49449 1.8476C8.43214 3.0306 7.83532 4.6351 7.83532 6.30811C7.83532 7.98113 8.43214 9.58562 9.49449 10.7686C10.5568 11.9516 11.9977 12.6162 13.5001 12.6162ZM13.5001 15.3877C5.96841 15.3877 1.14019 22.2695 1.14019 22.2695C1.14019 22.2695 -1.42525 25.3161 1.14019 26.4774C2.53923 27.1742 24.4605 27.1742 25.86 26.4774C28.425 25.3161 25.86 22.2695 25.86 22.2695C25.86 22.2695 21.2891 15.3877 13.5001 15.3877Z" fill="#9BAAF5"/>
+                    </svg>
+                </a>
+                <a class="logoutButton" href="{% url 'logout' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">
+                    <path d="M28 2V22" stroke="#9BAAF5" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M2 10.75C1.30964 10.75 0.75 11.3096 0.75 12C0.75 12.6904 1.30964 13.25 2 13.25L2 10.75ZM25.8839 12.8839C26.372 12.3957 26.372 11.6043 25.8839 11.1161L17.9289 3.16116C17.4408 2.67301 16.6493 2.67301 16.1612 3.16116C15.673 3.64932 15.673 4.44078 16.1612 4.92893L23.2322 12L16.1612 19.0711C15.673 19.5592 15.673 20.3507 16.1612 20.8388C16.6493 21.327 17.4408 21.327 17.9289 20.8388L25.8839 12.8839ZM2 12L2 13.25L25 13.25L25 12L25 10.75L2 10.75L2 12Z" fill="#9BAAF5"/>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="dashLBod">
+        <div class="overlayBottom">
+            
+            <div class="sepLine"></div>
+            
+            <div class="rowAlign2">
+                
+                <div class="rowAlign3">
+                    
+                {% if is_dicom %}
+                <div class="sliceNumFormat"><div class="slicePadd">Slice</div><span id="sliceNumber">1</span>/ <span id="allSlices">1</span> </div>
+                <!-- <hr> -->
+                <!-- <h3>DICOM Viewer</h3> -->
+
+                <!-- Slice number display -->
+                <!-- <div style="margin-bottom: 10px;">
+                <strong>Slice: <span id="sliceNumber">1</span></strong>
+                </div> -->
+
+                <!-- DICOM display container -->
+                <div id="dicomImage" class="dicomView"></div>
+                
+                <!-- Slider -->
+                <div style="margin-top: 10px;" id="sliderContainer">
+                <input type="range" id="sliceSlider" min="0" value="0">
+                </div>
+                {% else %}
+                <!-- <div class="sliceNumFormat"><div class="slicePadd">Preview</div><span id="sliceNumber"></span><span id="allSlices"></span> </div>
+                <div class="testDiv2">Upload a Scan</div>
+                <div style="margin-top: 10px;" id="sliderContainer">
+                <input type="range" id="sliceSlider" max="0" min="0" value="0">
+                </div> -->
+                <!-- <div class="sliceNumFormat"><div class="slicePadd">Preview</div><span id="sliceNumber"></span><span id="allSlices"></span> </div> -->
+                <div id="dicomImage" class="dicomView"></div>
+                <div id="sliderContainer" style="margin-top: 10px;">
+                    <input type="range" id="sliceSlider" min="0" value="0">
+                </div>
+                
+                <!-- <div id="dicomImage" class="dicomView"></div> -->
+                
+                <!-- Slider -->
+                <!-- <div style="margin-top: 10px;" id="sliderContainer">
+                <input type="range" id="sliceSlider" min="0" value="0"> -->
+                {% endif %}
+                </div>
+                <div class="rowAlign4">
+
+                    <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <!-- {% render_field form.patient class="scanDesc" placeholder="Select Patient" %} -->
+                    <!-- Hidden field to submit selected patient ID -->
+                    <input type="hidden" name="patient" id="patientInput" required>
+
+                    <!-- Search input that triggers the overlay -->
+                    <input class="scanDescPname" type="text" id="patientSearch" placeholder="Choose a patient..." oninput="filterPatients()" onclick="showPatientOverlay()" autocomplete="off" />
+
+                    <!-- Overlay list -->
+                    <div id="patientOverlay" class="overlay" style="display: none;">
+                        <div id="patientList" class="overlay-content">
+                            {% for patient in form.fields.patient.queryset %}
+                                <div onclick="selectPatient('{{ patient.id }}', '{{ patient.username }}')">
+                                    {{ patient.username }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- {% render_field form.file class="scanDesc" placeholder="Upload File" %} -->
+                     <div class="file-upload-wrapper">
+                        <label class="file-upload-button" for="fileInput"><span id="file-name" class="file-name-display">Upload File</span></label>
+                        <!-- {{ form.file|add_class:"file-upload-hidden" }} -->
+                        <!-- {% render_field form.file class="file-upload-hidden" %} -->
+                         {% render_field form.file class="file-upload-hidden" id="fileInput" %}
+                        
+                    </div>
+
+                    <!-- {% render_field form.scan_type class="scanDesc" placeholder="Scan Type" %} -->
+                     <!-- Hidden input to store value -->
+                    <input type="hidden" name="scan_type" id="scanTypeInput" required>
+
+                    <!-- Custom button to trigger overlay -->
+                    <button class="scanDesc2" type="button" onclick="toggleScanTypeOverlay()" id="scanTypeButton">Scan Type</button>
+
+                    <!-- Overlay -->
+                    <div id="scanTypeOverlay" class="overlay2" style="display: none;">
+                        <div class="overlay-content2">
+                            {% for val, label in form.fields.scan_type.choices %}
+                                <div onclick="selectScanType('{{ val }}', '{{ label }}')">{{ label }}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    {% render_field form.description class="rowAlignDesc" placeholder="Description" %}
+
+                    <button class="scanUpload" type="submit">Upload</button>
+                    </form>
+
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleScanTypeOverlay() {
+            const overlay = document.getElementById('scanTypeOverlay');
+            overlay.style.display = (overlay.style.display === 'none') ? 'block' : 'none';
+        }
+
+        function selectScanType(value, label) {
+            const button = document.getElementById('scanTypeButton');
+            document.getElementById('scanTypeInput').value = value;
+            button.textContent = label;
+            button.classList.add('active'); // Change color to black
+            document.getElementById('scanTypeOverlay').style.display = 'none';
+        }
+
+        // Close overlay when clicking outside of it
+        document.addEventListener('click', function (event) {
+            const overlay = document.getElementById('scanTypeOverlay');
+            const button = document.getElementById('scanTypeButton');
+
+            // Check if the click was outside the overlay and the button
+            if (!overlay.contains(event.target) && !button.contains(event.target)) {
+                overlay.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
+    window.addEventListener('load', function () {
+        const container = document.getElementById('myListContainer');
+        container.scrollTop = container.scrollHeight;
+    });
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const element = document.getElementById("dicomImage");
+        const sliceSlider = document.getElementById("sliceSlider");
+        const sliceNumber = document.getElementById("sliceNumber");
+        const allSlices = document.getElementById("allSlices");
+        const fileInput = document.getElementById("fileInput");
+        const fileNameDisplay = document.getElementById("file-name");
+
+        cornerstone.enable(element);
+        cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
+        cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
+
+        cornerstoneWADOImageLoader.webWorkerManager.initialize({
+            webWorkerPath: "https://unpkg.com/cornerstone-wado-image-loader@3.0.0/dist/webWorker.min.js",
+            taskConfiguration: {
+                decodeTask: {
+                    codecsPath: "https://unpkg.com/cornerstone-wado-image-loader@3.0.0/dist/cornerstoneWADOImageLoaderCodecs.min.js"
+                }
+            }
+        });
+
+        fileInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (!file) return;
+
+            // Update filename in UI
+            fileNameDisplay.textContent = file.name;
+
+            const objectUrl = URL.createObjectURL(file);
+            const imageId = "wadouri:" + objectUrl;
+
+            cornerstone.loadAndCacheImage(imageId).then(image => {
+                cornerstone.displayImage(element, image);
+
+                let numberOfFrames = parseInt(image.data.string('x00280008')) || 1;
+                allSlices.textContent = numberOfFrames;
+
+                if (numberOfFrames <= 1) {
+                    document.getElementById("sliderContainer").style.display = "none";
+                } else {
+                    document.getElementById("sliderContainer").style.display = "block";
+                    sliceSlider.max = numberOfFrames - 1;
+                    sliceSlider.value = 0;
+                    sliceNumber.textContent = "1";
+
+                    sliceSlider.oninput = function () {
+                        const frame = parseInt(this.value);
+                        const frameImageId = imageId + "?frame=" + frame;
+                        cornerstone.loadImage(frameImageId).then(img => {
+                            cornerstone.displayImage(element, img);
+                            sliceNumber.textContent = frame + 1;
+                        });
+                    };
+                }
+            }).catch(err => {
+                console.error("Error loading DICOM file:", err);
+            });
+        });
+    });
+    </script>
+    
+    <!-- Scripts (must load in order) -->
+    <script src="https://unpkg.com/cornerstone-core@2.4.0/dist/cornerstone.js"></script>
+    <script src="https://unpkg.com/dicom-parser@1.8.6/dist/dicomParser.min.js"></script>
+    <script src="https://unpkg.com/cornerstone-wado-image-loader@3.0.0/dist/cornerstoneWADOImageLoader.js"></script>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const element = document.getElementById("dicomImage");
+    const sliceSlider = document.getElementById("sliceSlider");
+    const sliceNumber = document.getElementById("sliceNumber");
+    const allSlices = document.getElementById("allSlices");
+
+    // Enable the Cornerstone element
+    cornerstone.enable(element);
+
+    // Hook up external libraries
+    cornerstoneWADOImageLoader.external.cornerstone = cornerstone;
+    cornerstoneWADOImageLoader.external.dicomParser = dicomParser;
+
+    // Register image loader
+    cornerstone.registerImageLoader('wadouri', cornerstoneWADOImageLoader.wadouri.loadImage);
+
+    // Initialize web workers
+    cornerstoneWADOImageLoader.webWorkerManager.initialize({
+        webWorkerPath: "https://unpkg.com/cornerstone-wado-image-loader@3.0.0/dist/webWorker.min.js",
+        taskConfiguration: {
+        decodeTask: {
+            codecsPath: "https://unpkg.com/cornerstone-wado-image-loader@3.0.0/dist/cornerstoneWADOImageLoaderCodecs.min.js"
+        }
+        }
+    });
+
+    const baseImageId = "wadouri:" + window.location.origin + "{{ scan.file.url }}";
+    let numberOfFrames = 1;
+    let currentFrame = 0;
+
+    function updateSlice(frameIndex) {
+        const imageId = baseImageId + "?frame=" + frameIndex;
+        cornerstone.loadImage(imageId)
+        .then(function (image) {
+            cornerstone.displayImage(element, image);
+            sliceNumber.textContent = (frameIndex + 1);
+            sliceSlider.value = frameIndex;
+        })
+        .catch(function (err) {
+            console.error("Error loading DICOM image", err);
+        });
+    }
+
+    // Load first image and determine number of frames
+    cornerstone.loadAndCacheImage(baseImageId + "?frame=0").then(image => {
+        cornerstone.displayImage(element, image);
+
+        // Attempt to extract number of frames
+        //const metadata = cornerstoneWADOImageLoader.wadouri.metaDataManager.get(baseImageId);
+        //numberOfFrames = metadata ? metadata.NumberOfFrames || 1 : 1;
+        numberOfFrames = image.data.string('x00280008') || 1;
+        allSlices.textContent = numberOfFrames
+        
+        const sliderContainer = document.getElementById("sliderContainer");
+        if (numberOfFrames <= 1) {
+        sliderContainer.style.display = "none"; // Hide slider
+        } else {
+        sliderContainer.style.display = "block"; // Show slider
+        document.getElementById("sliceSlider").max = numberOfFrames - 1;
+        }
+
+        sliceSlider.max = numberOfFrames - 1;
+        sliceSlider.value = 0;
+        sliceNumber.textContent = "1";
+    });
+
+    // Handle slider input
+    sliceSlider.addEventListener("input", function () {
+        currentFrame = parseInt(this.value);
+        updateSlice(currentFrame);
+    });
+    });
+    </script>
+    <script>
+        const date = new Date();
+        const day = date.getDate();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December"];
+        const month = monthNames[date.getMonth()];
+        const year = date.getFullYear();
+
+        document.getElementById("day").textContent = day;
+        document.getElementById("monthYear").textContent = `${month} ${year}`;
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+    </script>
+    <script>
+    function showPatientOverlay() {
+        document.getElementById('patientOverlay').style.display = 'block';
+    }
+
+    function selectPatient(id, username) {
+        document.getElementById('patientInput').value = id;
+        document.getElementById('patientSearch').value = username;
+        document.getElementById('patientOverlay').style.display = 'none';
+    }
+
+    function filterPatients() {
+        const input = document.getElementById('patientSearch');
+        const filter = input.value.toLowerCase();
+        const divs = document.getElementById('patientList').getElementsByTagName('div');
+
+        for (let i = 0; i < divs.length; i++) {
+            const txt = divs[i].textContent || divs[i].innerText;
+            divs[i].style.display = txt.toLowerCase().includes(filter) ? '' : 'none';
+        }
+    }
+
+    // Optional: Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const overlay = document.getElementById('patientOverlay');
+        const search = document.getElementById('patientSearch');
+        if (!overlay.contains(e.target) && e.target !== search) {
+            overlay.style.display = 'none';
+        }
+    });
+    </script>
+
+
+   <script>
+        const fileInput = document.getElementById("fileInput");
+        const fileNameDisplay = document.getElementById("file-name");
+
+        fileInput.addEventListener("change", function () {
+            const fileName = fileInput.files[0]?.name || "Upload File";
+            fileNameDisplay.textContent = fileName;
+
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.classList.add("active"); // add black text
+            } else {
+                fileNameDisplay.classList.remove("active"); // revert to gray
+            }
+        });
+    </script>
+    <!-- <a href="{% url 'doctor_dashboard' %}">Back</a>
     <h2>Upload Scan</h2>
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Upload</button>
-    </form>
+    </form> -->
 </body>
 </html>

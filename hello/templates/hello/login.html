@@ -1,16 +1,37 @@
+{% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/login2.css' %}" />
 </head>
 <body>
-    <h2>Login</h2>
-    <form method="POST">
+    <img src="{% static 'hello/loginPage.svg' %}" class="background-image" alt="Background">
+    <div class="overlayLoginForm">
+    <form class="loginForm" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Login</button>
+        <div class="loginText">Login to account</div>
+        <div class="sepLine"></div>
+        <!-- <label for="{{ form.username.id_for_label }}">Username</label> -->
+        {% render_field form.username class="custom-input" placeholder="Username" %}
+        <!-- <label for="{{ form.password.id_for_label }}">Password</label> -->
+        {% render_field form.password class="custom-input" placeholder="Password" %}
+        <div class="checkboxWrapper">
+            <label class="custom-checkbox">
+                <input type="checkbox" name="agree" required/>
+                <span class="checkbox-style"></span>
+                <div class="checkboxText">I am not a robot</div>
+            </label>
+        </div>
+        <button class="loginButton" type="submit">Login</button>
+        <div class="registerButtonBox">
+            Don't have an account?
+            <a class="registerLink" href="{% url 'register' %}">Register here</a>
+        </div>
     </form>
+    </div>
 </body>
 </html>

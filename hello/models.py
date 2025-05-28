@@ -39,7 +39,8 @@ class Scan(models.Model):
     ('PET', 'PET Scan'),
     ('ECG', 'ECG'),
     ('Other', 'Other'),
-]
+    ]
+    
     file = models.FileField(upload_to="scans/")
     description = models.TextField()
     upload_date = models.DateTimeField(auto_now_add=True)
@@ -58,5 +59,31 @@ class ScanComment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.author.username} on scan {self.scan.id}"
+    
+
+class DoctorInfo(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    specialization = models.CharField(max_length=100, blank=True)
+    hospital_name = models.CharField(max_length=200, blank=True)
+    hospital_address = models.CharField(max_length=300, blank=True)
+    consultation_start = models.TimeField(null=True, blank=True)
+    consultation_end = models.TimeField(null=True, blank=True)
+    photo = models.FileField(upload_to='photos/', blank=True, null=True)
+
+    # Fields for the patient
+    social_security_number = models.CharField(max_length=20, blank=True, null=True)
+    home_address = models.CharField(max_length=300, blank=True, null=True)
+    city = models.CharField(max_length=100, blank=True, null=True)
+    phone_number = models.CharField(max_length=20, blank=True, null=True)  # Replaces national_id
 
 
+    def __str__(self):
+        return f"Doctor Info for {self.user.username}"
+    
+class Reminder(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='reminders')
+    message = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Reminder for {self.user.username}: {self.message[:30]}"

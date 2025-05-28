@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/doctorSettings.css' %}" />
+</head>
+<body>
+    <div class="dashUBod">
+        <div class="overlayTop">
+            <a class="logoCorection" href="{% url 'patient_dashboard' %}">
+            <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="75" height="75" rx="15" fill="#6C63FF"/>
+            <path d="M44 8C46.2091 8 48 9.79086 48 12V28H64C66.2091 28 68 29.7909 68 32V44C68 46.2091 66.2091 48 64 48H48V64C48 66.2091 46.2091 68 44 68H32C29.7909 68 28 66.2091 28 64V48H12C9.79086 48 8 46.2091 8 44V32C8 29.7909 9.79086 28 12 28H28V12C28 9.79086 29.7909 8 32 8H44Z" fill="white"/>
+            <path d="M40.5 60.5C40.1878 62.061 38.1259 63.7686 37.2926 63.9353C36.5413 64.1776 36.4864 63.0477 37.2926 61.4353C38.7926 58.4353 36.0604 57.703 34.2926 55.9353C31.2926 52.9353 30.3794 46.7515 38.2926 42.4352C43.7926 39.4352 43.503 37.2904 37.7926 34.4352C34.7926 32.9352 29.7301 27.9352 31.2926 22.9352C32.8045 19.5294 34.5852 18.5567 37.7926 18.5284C40.15 18.5075 40.6134 18.5284 42.5 19C44 19.375 44.5146 21.9647 44 22.5C43 22.9352 41.1108 23.3185 39.7926 22.4352C35.7926 21.9352 32.5629 25.7949 41.7926 31.4352C50.7926 36.9352 45.2926 43.6852 38.7926 46.9352C34.7926 48.9352 35.7926 52.9353 37.7926 54.4353C39.7926 55.9353 41 58 40.5 60.5Z" fill="#6C63FF"/>
+            </svg>
+            </a>
+            <div class="infoBox">
+                    <div class="dashboardTextColumn">
+                        <div class="dashboardText">Account Settings</div>
+                        
+                    </div>
+                    
+                    
+                    
+                </div>
+                <div class="helloBox">
+                    <div id="currentTime" class="dateDisplay2"></div>
+                    <div class="vertSep"></div>
+                    <div class="dateDisplay"><span id="day"></span></div>
+                    <div class="dateDisplay2" id="monthYear"></div>
+                </div>
+            
+            <div class="logoutBox">
+                <a class="logoutButton" href="{% url 'logout' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">
+                    <path d="M28 2V22" stroke="#9BAAF5" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M2 10.75C1.30964 10.75 0.75 11.3096 0.75 12C0.75 12.6904 1.30964 13.25 2 13.25L2 10.75ZM25.8839 12.8839C26.372 12.3957 26.372 11.6043 25.8839 11.1161L17.9289 3.16116C17.4408 2.67301 16.6493 2.67301 16.1612 3.16116C15.673 3.64932 15.673 4.44078 16.1612 4.92893L23.2322 12L16.1612 19.0711C15.673 19.5592 15.673 20.3507 16.1612 20.8388C16.6493 21.327 17.4408 21.327 17.9289 20.8388L25.8839 12.8839ZM2 12L2 13.25L25 13.25L25 12L25 10.75L2 10.75L2 12Z" fill="#9BAAF5"/>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="dashLBod">
+        <div class="overlayBottom">
+            <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <div class="rowAlign1">
+                <div>Personal information</div>
+                <button type="submit" class="applyButt">SAVE</button>
+            </div>
+            <div class="sepLine"></div>
+
+            <div class="rowAlign2">
+                <div class="mainTitle">Profile</div>
+
+                <div class="mainRowAlign">
+                <div class="mainColumnAlign1">
+                    <div class="photo-section">
+                        
+                        {% if user.doctorinfo.photo %}
+                            <img id="photoPreview" src="{{ user.doctorinfo.photo.url }}" alt="Photo Preview" class="photo-preview" />
+                        {% else %}
+                            <svg xmlns="http://www.w3.org/2000/svg" width="97" height="97" viewBox="0 0 97 97" fill="none">
+                            <path d="M48.5003 45.3249C53.8978 45.3249 59.0742 42.9373 62.8907 38.6873C66.7073 34.4372 68.8515 28.6729 68.8515 22.6625C68.8515 16.652 66.7073 10.8877 62.8907 6.63768C59.0742 2.38765 53.8978 0 48.5003 0C43.1028 0 37.9264 2.38765 34.1098 6.63768C30.2932 10.8877 28.1491 16.652 28.1491 22.6625C28.1491 28.6729 30.2932 34.4372 34.1098 38.6873C37.9264 42.9373 43.1028 45.3249 48.5003 45.3249ZM48.5003 55.2818C21.4421 55.2818 4.09623 80.0053 4.09623 80.0053C4.09623 80.0053 -5.12035 90.9505 4.09623 95.1226C9.12242 97.6258 87.8768 97.6258 92.9043 95.1226C102.12 90.9505 92.9043 80.0053 92.9043 80.0053C92.9043 80.0053 76.4829 55.2818 48.5003 55.2818Z" fill="#DEDCDC"/>
+                            </svg>
+                        {% endif %}
+                        
+
+                        <!-- Hidden file input -->
+                        <input type="file" id="photo-upload" name="photo" accept="image/*" style="display: none;" onchange="this.form.submit();">
+
+                        <!-- Visible trigger -->
+                        <label for="photo-upload" class="photoAdd">Change Image</label>
+                    </div>
+                    <!-- <div class="photoBox">
+                    {% if form.photo.value %}
+                        <img id="photoPreview" src="{{ user.doctorinfo.photo.url }}" alt="Photo Preview" class="photo-preview" />
+                    {% endif %}
+                    </div>
+                    <div class="photoAdd">
+                    
+                    <label for="photoUpload" class="upload-button">Change Photo</label>
+                    {{ form.photo|add_class:"hidden" }}  {# Hide the input with CSS below #}
+                    </div> -->
+                </div>
+
+                <div class="mainColumnAlign2">
+                    <div class="main1SubCol">
+                    <div class="lowLVLCont">
+                        Username
+                        {{ form.username|add_class:"allInputStyle" }}
+                    </div>
+                    <div class="lowLVLCont">
+                        Hospital Name
+                        {{ form.hospital_name|add_class:"allInputStyle" }}
+                    </div>
+                    <div class="lowLVLCont">
+                        Consultations
+                        <div class="consultOuter">
+                            {{ form.consultation_start|add_class:"consultInner" }}
+                            <div class="lieConfig">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="4" viewBox="0 0 15 4" fill="none">
+                                <path d="M2 2L13 2" stroke="#D9D9D9" stroke-width="3" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            {{ form.consultation_end|add_class:"consultInner" }}
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="main1SubCol">
+                    <div class="lowLVLCont">
+                        Email
+                        {{ form.email|add_class:"allInputStyle" }}
+                    </div>
+                    <div class="lowLVLCont">
+                        Hospital City
+                        {{ form.hospital_address|add_class:"allInputStyle" }}
+                    </div>
+                    <div class="lowLVLCont">
+                        Specialization
+                        {{ form.specialization|add_class:"allInputStyle" }}
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+            </form>
+           
+                <div class="mainSep"></div>
+                <div class="mainTitle">Change Password</div>
+                <form class="subRowAlign" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="password_change" value="1">
+                    
+                    
+                    <input class="downPassField" type="password" name="current_password" placeholder="Current password" required>
+                    
+                    
+                    <input class="downPassField" type="password" name="new_password" placeholder="New password" required>
+                    
+                    
+                    <input class="downPassField" type="password" name="confirm_password" placeholder="Confirm new password" required>
+                    
+                    
+                    <button type="submit" class="downPassButton">Reset Password</button>
+                </form>
+                <!-- <div class="subRowAlign">
+                    <div class="downPassField"></div>
+                    <div class="downPassField"></div>
+                    <div class="downPassButton">Reset Password</div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const input = document.querySelector(".photoUploadInput");
+            const preview = document.getElementById("photoPreview");
+
+            input.addEventListener("change", function () {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        preview.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+
+                    // Auto-submit the form (or AJAX upload)
+                    const form = this.closest("form");
+                    if (form) {
+                        form.submit();  // This triggers the POST request immediately
+                    }
+                }
+            });
+        });
+    </script>
+    <script>
+        const date = new Date();
+        const day = date.getDate();
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+                            "July", "August", "September", "October", "November", "December"];
+        const month = monthNames[date.getMonth()];
+        const year = date.getFullYear();
+
+        document.getElementById("day").textContent = day;
+        document.getElementById("monthYear").textContent = `${month} ${year}`;
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('currentTime').textContent = `${hours}:${minutes}`;
+    </script>
+   
+</body>
+</html>

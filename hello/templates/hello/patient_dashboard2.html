@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'hello/dashboardP_alt.css' %}" />
+</head>
+<body>
+    <div class="dashUBod">
+        <div class="overlayTop">
+            <svg width="75" height="75" viewBox="0 0 75 75" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="75" height="75" rx="15" fill="#6C63FF"/>
+            <path d="M44 8C46.2091 8 48 9.79086 48 12V28H64C66.2091 28 68 29.7909 68 32V44C68 46.2091 66.2091 48 64 48H48V64C48 66.2091 46.2091 68 44 68H32C29.7909 68 28 66.2091 28 64V48H12C9.79086 48 8 46.2091 8 44V32C8 29.7909 9.79086 28 12 28H28V12C28 9.79086 29.7909 8 32 8H44Z" fill="white"/>
+            <path d="M40.5 60.5C40.1878 62.061 38.1259 63.7686 37.2926 63.9353C36.5413 64.1776 36.4864 63.0477 37.2926 61.4353C38.7926 58.4353 36.0604 57.703 34.2926 55.9353C31.2926 52.9353 30.3794 46.7515 38.2926 42.4352C43.7926 39.4352 43.503 37.2904 37.7926 34.4352C34.7926 32.9352 29.7301 27.9352 31.2926 22.9352C32.8045 19.5294 34.5852 18.5567 37.7926 18.5284C40.15 18.5075 40.6134 18.5284 42.5 19C44 19.375 44.5146 21.9647 44 22.5C43 22.9352 41.1108 23.3185 39.7926 22.4352C35.7926 21.9352 32.5629 25.7949 41.7926 31.4352C50.7926 36.9352 45.2926 43.6852 38.7926 46.9352C34.7926 48.9352 35.7926 52.9353 37.7926 54.4353C39.7926 55.9353 41 58 40.5 60.5Z" fill="#6C63FF"/>
+            </svg>
+            <div class="search-wrapper">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="39" height="39" viewBox="0 0 39 39" fill="none">
+            <g clip-path="url(#clip0_64_19)">
+                <path d="M15.3853 -0.0124363C15.4335 -0.0123638 15.4817 -0.0122912 15.5313 -0.0122165C16.2452 -0.0104077 16.9453 0.00585191 17.6514 0.119388C17.6951 0.126217 17.7388 0.133046 17.7838 0.140082C20.5202 0.579283 23.1248 1.69972 25.2446 3.50204C25.2867 3.53723 25.3288 3.57242 25.3709 3.60759C25.8965 4.04975 26.4071 4.51439 26.86 5.03179C26.9193 5.09945 26.9792 5.16652 27.0391 5.23363C27.97 6.28391 28.7412 7.48606 29.3394 8.7551C29.3534 8.78454 29.3674 8.81398 29.3818 8.84431C30.3431 10.8847 30.8189 13.106 30.8203 15.3587C30.8204 15.4164 30.8204 15.4164 30.8204 15.4753C30.8179 17.7478 30.3197 19.9953 29.3394 22.0469C29.323 22.082 29.3065 22.117 29.2895 22.1531C29.0881 22.5791 28.8643 22.9863 28.6142 23.3858C28.5948 23.4172 28.5753 23.4486 28.5552 23.481C28.5378 23.5086 28.5203 23.5363 28.5023 23.5648C28.4558 23.6427 28.4558 23.6427 28.4648 23.7582C28.5298 23.841 28.5298 23.841 28.6192 23.9268C28.6536 23.9614 28.688 23.9959 28.7235 24.0316C28.7623 24.07 28.8012 24.1083 28.84 24.1467C28.8808 24.1875 28.9216 24.2283 28.9623 24.2691C29.0748 24.3815 29.1876 24.4935 29.3004 24.6055C29.422 24.7263 29.5431 24.8473 29.6643 24.9684C29.8746 25.1783 30.0851 25.3879 30.2957 25.5975C30.6007 25.9009 30.9053 26.2048 31.2097 26.5087C31.7042 27.0025 32.1988 27.496 32.6937 27.9894C32.7233 28.019 32.753 28.0485 32.7835 28.079C33.1138 28.4082 33.4441 28.7375 33.7746 29.0666C33.8042 29.0961 33.8339 29.1257 33.8644 29.1561C33.9089 29.2004 33.9089 29.2004 33.9542 29.2455C34.0139 29.305 34.0736 29.3645 34.1333 29.424C34.1629 29.4534 34.1924 29.4828 34.2228 29.5131C34.7155 30.0039 35.2078 30.4952 35.6999 30.9867C36.0033 31.2898 36.307 31.5925 36.6111 31.8948C36.8198 32.1023 37.0282 32.3101 37.2362 32.5183C37.3561 32.6382 37.4762 32.7579 37.5967 32.8773C37.7073 32.9868 37.8175 33.0968 37.9272 33.2071C37.9668 33.2467 38.0065 33.2861 38.0464 33.3253C38.5811 33.8514 38.988 34.5295 39.012 35.296C39.0125 35.3807 39.0127 35.4655 39.0124 35.5502C39.0131 35.592 39.0137 35.6339 39.0144 35.677C39.0146 36.0992 38.9285 36.481 38.7341 36.856C38.7162 36.8933 38.7162 36.8933 38.6979 36.9314C38.2693 37.779 37.3892 38.5553 36.5046 38.8817C35.6883 39.1277 34.8595 39.0447 34.107 38.6549C33.75 38.4516 33.4634 38.1651 33.1759 37.8755C33.135 37.8345 33.094 37.7936 33.053 37.7526C32.9412 37.6409 32.8297 37.529 32.7182 37.4169C32.5976 37.2959 32.4768 37.1751 32.356 37.0542C32.1471 36.8451 31.9383 36.6358 31.7295 36.4264C31.4278 36.1237 31.1258 35.8212 30.8237 35.5188C30.3336 35.028 29.8437 34.5371 29.3539 34.046C28.8783 33.5691 28.4025 33.0923 27.9266 32.6156C27.8973 32.5862 27.8679 32.5568 27.8377 32.5265C27.6904 32.379 27.5431 32.2315 27.3959 32.0839C26.175 30.861 24.9544 29.6377 23.7339 28.4143C23.6445 28.4654 23.555 28.5165 23.4656 28.5677C23.4403 28.5821 23.4151 28.5965 23.3891 28.6113C23.2654 28.6821 23.1418 28.7531 23.0188 28.8253C21.2416 29.8538 19.2485 30.4775 17.2141 30.7224C17.1772 30.7271 17.1403 30.7318 17.1024 30.7366C14.363 31.0705 11.5339 30.5627 9.02446 29.449C8.99151 29.4344 8.95855 29.4199 8.92459 29.4049C7.50225 28.7708 6.21379 27.8757 5.06461 26.8294C5.00026 26.7709 4.93554 26.7128 4.8705 26.655C4.55507 26.3746 4.25061 26.0839 3.97647 25.7624C3.91195 25.687 3.84668 25.6125 3.7808 25.5382C1.2424 22.6662 -0.118729 18.7975 0.0298161 14.4807C0.0315216 14.4515 0.0332272 14.4223 0.0349845 14.3922C0.153894 12.4178 0.662251 10.5002 1.5107 8.71531C1.52698 8.68076 1.54326 8.64622 1.56003 8.61063C2.33096 6.98498 3.41792 5.57328 4.68119 4.30293C4.7089 4.27501 4.7366 4.24709 4.76515 4.21833C4.94603 4.03782 5.13274 3.86672 5.32722 3.70102C5.35256 3.67937 5.3779 3.65771 5.40401 3.6354C6.26528 2.90484 7.19399 2.28362 8.1896 1.75102C8.21968 1.73475 8.24977 1.71847 8.28076 1.7017C9.7421 0.917875 11.3504 0.421354 12.9826 0.151722C13.0382 0.142464 13.0382 0.142464 13.0949 0.133019C13.8572 0.0137956 14.6147 -0.0148459 15.3853 -0.0124363ZM8.56993 7.2676C8.52555 7.30668 8.48086 7.34541 8.43597 7.3839C7.89069 7.85366 7.37727 8.36849 6.95719 8.95408C6.92834 8.99352 6.92834 8.99352 6.89891 9.03375C6.47416 9.61484 6.11283 10.2141 5.80428 10.8643C5.79122 10.8913 5.77816 10.9183 5.7647 10.9461C5.26703 11.9804 4.97995 13.1092 4.85015 14.2469C4.84635 14.2793 4.84254 14.3116 4.83862 14.3449C4.63205 16.3099 5.01072 18.3296 5.88379 20.0969C5.89963 20.1291 5.91546 20.1613 5.93178 20.1945C6.1505 20.6347 6.39278 21.0504 6.6789 21.45C6.69724 21.4757 6.71558 21.5014 6.73447 21.5278C7.30826 22.3251 7.96561 23.078 8.74618 23.6786C8.78507 23.7098 8.82397 23.7409 8.86405 23.7731C10.9931 25.4696 13.8096 26.2702 16.5121 25.9861C18.7373 25.7242 20.8251 24.8443 22.4866 23.3266C22.5717 23.2493 22.6579 23.174 22.745 23.099C23.0169 22.8614 23.264 22.6024 23.4954 22.3255C23.5118 22.3061 23.5282 22.2867 23.545 22.2667C25.3796 20.0814 26.2546 17.2417 26.0124 14.4011C25.9028 13.2827 25.621 12.1698 25.1651 11.1429C25.1412 11.0886 25.1412 11.0886 25.1167 11.0332C24.7415 10.1934 24.276 9.42754 23.6942 8.71531C23.6737 8.69021 23.6532 8.66511 23.6321 8.63925C23.165 8.07222 22.6496 7.52902 22.0642 7.08367C22.018 7.04727 21.9718 7.01084 21.9255 6.97439C20.6094 5.94851 19.0789 5.26634 17.4451 4.94464C17.385 4.93277 17.385 4.93277 17.3237 4.92066C16.6979 4.80378 16.0783 4.76021 15.4425 4.76307C15.3905 4.7632 15.3905 4.7632 15.3376 4.76333C12.8777 4.77306 10.4244 5.62842 8.56993 7.2676Z" fill="#9BAAF5"/>
+                <path d="M5.36697 3.66122C5.39321 3.67436 5.41945 3.68749 5.44648 3.70102C4.93483 4.21319 4.42318 4.72537 3.89602 5.25306C3.86979 5.23993 3.84355 5.2268 3.81651 5.21327C4.10774 4.89624 4.40221 4.58306 4.70604 4.27806C4.74424 4.23955 4.74424 4.23955 4.78322 4.20026C4.93836 4.04544 5.09846 3.89848 5.26442 3.75535C5.29951 3.72499 5.33418 3.69405 5.36697 3.66122Z" fill="#5D5D5D"/>
+            </g>
+            <defs>
+                <clipPath id="clip0_64_19">
+                <rect width="39" height="39" fill="white"/>
+                </clipPath>
+            </defs>
+            </svg>
+            <!-- <input type="text" class="search-input" /> -->
+            <input type="text" class="search-input" id="searchBox" placeholder="Search doctors or scans" autocomplete="off" />
+            <!-- Overlay box -->
+            <div class="ovPad">
+            <div id="searchOverlay" class="search-overlay">
+                <ul id="searchResults" >
+                    {% for doctor in assigned_doctors %}
+                        <li class="search-item" data-type="patient">
+                            <a href="{% url 'doctor_scans' doctor_id=doctor.doctor.id %}" class="search-link">
+                                <div class="TypeDisp">Doctor</div>
+                                <div class="firstItem">{{ doctor.doctor.username }}</div>
+                                <div class="vertSearchSep"></div>
+                                <div class="secondItem">{{ doctor.doctor.doctorinfo.specialization }}</div>
+                                <div class="vertSearchSep"></div>
+                                <div class="thirdItem">{{ doctor.doctor.doctorinfo.hospital_name }}</div>
+                                <div class="vertSearchSep"></div>
+                                <div class="fourthItem">{{ doctor.doctor.doctorinfo.hospital_address }}</div>
+                                <div class="vertSearchSep"></div>
+                                <div class="fourthItem">{{ doctor.doctor.email }}</div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    {% for scan in scans %}
+                        <li class="search-item" data-type="scan">
+                            <a href="{% url 'scan_detail' scan.id %}" class="search-link">
+                                <div class="TypeDisp">Scan</div>
+                                <div class="firstItem">{{ scan.scan_type }}</div>
+                                <div class="vertSearchSep"></div>
+                                <div class="secondItem">{{ scan.patient.username }}</div>
+                                <div class="vertSearchSep"></div>
+                                <div class="descItem">{{ scan.description }}</div>
+                                <div class="vertSearchSep"></div>
+                                <div class="thirdItemAlt">{{ scan.upload_date }}</div>
+                                
+                                
+                                
+                                
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            </div>
+            </div>
+            <div class="logoutBox">
+                <a href="{% url 'settingsP' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+                    <path d="M13.5001 12.6162C15.0025 12.6162 16.4433 11.9516 17.5057 10.7686C18.568 9.58562 19.1648 7.98113 19.1648 6.30811C19.1648 4.6351 18.568 3.0306 17.5057 1.8476C16.4433 0.664603 15.0025 0 13.5001 0C11.9977 0 10.5568 0.664603 9.49449 1.8476C8.43214 3.0306 7.83532 4.6351 7.83532 6.30811C7.83532 7.98113 8.43214 9.58562 9.49449 10.7686C10.5568 11.9516 11.9977 12.6162 13.5001 12.6162ZM13.5001 15.3877C5.96841 15.3877 1.14019 22.2695 1.14019 22.2695C1.14019 22.2695 -1.42525 25.3161 1.14019 26.4774C2.53923 27.1742 24.4605 27.1742 25.86 26.4774C28.425 25.3161 25.86 22.2695 25.86 22.2695C25.86 22.2695 21.2891 15.3877 13.5001 15.3877Z" fill="#9BAAF5"/>
+                    </svg>
+                </a>
+                <a class="logoutButton" href="{% url 'logout' %}">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">
+                    <path d="M28 2V22" stroke="#9BAAF5" stroke-width="2.5" stroke-linecap="round"/>
+                    <path d="M2 10.75C1.30964 10.75 0.75 11.3096 0.75 12C0.75 12.6904 1.30964 13.25 2 13.25L2 10.75ZM25.8839 12.8839C26.372 12.3957 26.372 11.6043 25.8839 11.1161L17.9289 3.16116C17.4408 2.67301 16.6493 2.67301 16.1612 3.16116C15.673 3.64932 15.673 4.44078 16.1612 4.92893L23.2322 12L16.1612 19.0711C15.673 19.5592 15.673 20.3507 16.1612 20.8388C16.6493 21.327 17.4408 21.327 17.9289 20.8388L25.8839 12.8839ZM2 12L2 13.25L25 13.25L25 12L25 10.75L2 10.75L2 12Z" fill="#9BAAF5"/>
+                    </svg>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="dashLBod">
+        <div class="overlayBottom">
+            <div class="rowAlign1">
+                <div class="infoBox">
+                    <div class="dashboardTextColumn">
+                        <div class="dashboardText">Dashboard</div>
+                        
+                    </div>
+                    <div class="iconBox">
+                            <a class="quickPad" href="{% url 'patient_search' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59" fill="none">
+                                <path d="M29.5004 27.1599C32.7216 27.1599 35.8108 25.7292 38.0885 23.1824C40.3662 20.6357 41.6458 17.1816 41.6458 13.58C41.6458 9.97833 40.3662 6.52421 38.0885 3.97748C35.8108 1.43074 32.7216 0 29.5004 0C26.2792 0 23.19 1.43074 20.9123 3.97748C18.6346 6.52421 17.355 9.97833 17.355 13.58C17.355 17.1816 18.6346 20.6357 20.9123 23.1824C23.19 25.7292 26.2792 27.1599 29.5004 27.1599ZM29.5004 33.1263C13.3522 33.1263 3.00038 47.9413 3.00038 47.9413C3.00038 47.9413 -2.5 54.5 3.00038 57C5.99997 58.5 53 58.5 56.0004 57C61.5 54.5 56.0004 47.9413 56.0004 47.9413C56.0004 47.9413 46.2002 33.1263 29.5004 33.1263Z" fill="#6C63FF"/>
+                                </svg>
+                            </a>
+                            <div>
+                                <div class="totalPatientsText">
+                                    <div class="patientNum">{{ assigned_doctors|length }}</div>
+                                    <div class="patientText">Doctors</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="iconBox">
+                            <a class="quickPad" href="{% url 'scan_searchPt' %}">
+                                
+                                <svg xmlns="http://www.w3.org/2000/svg" width="57" height="57" viewBox="0 0 57 57" fill="none">
+                                <path d="M4.27539 38.4756V48.7256C4.2757 50.9345 6.06644 52.7256 8.27539 52.7256H17.1006V57H6C2.68629 57 2.41604e-08 54.3137 0 51V38.4756H4.27539ZM57 51C57 54.3137 54.3137 57 51 57H38.4756V52.7256H48.7256C50.9342 52.7253 52.7253 50.9343 52.7256 48.7256V38.4756H57V51ZM51 0C54.3137 4.83192e-07 57 2.68629 57 6V17.1006H52.7256V8.27539C52.7256 6.06646 50.9344 4.27572 48.7256 4.27539H38.4756V0H51ZM17.1006 4.27539H8.27539C6.06625 4.27539 4.2754 6.06626 4.27539 8.27539V17.1006H0V6C4.83208e-07 2.68629 2.68629 2.41596e-08 6 0H17.1006V4.27539Z" fill="#6C63FF"/>
+                                <circle cx="2.1375" cy="37.7625" r="2.1375" fill="#6C63FF"/>
+                                <circle cx="2.1375" cy="17.8125" r="2.1375" fill="#6C63FF"/>
+                                <rect y="37.7625" width="4.275" height="3.5625" fill="#6C63FF"/>
+                                <circle cx="17.8125" cy="2.14708" r="2.1375" transform="rotate(90 17.8125 2.14708)" fill="#6C63FF"/>
+                                <rect x="17.8125" width="4.275" height="3.5625" transform="rotate(90 17.8125 0)" fill="#6C63FF"/>
+                                <circle cx="17.8125" cy="54.8721" r="2.1375" transform="rotate(90 17.8125 54.8721)" fill="#6C63FF"/>
+                                <rect x="17.8125" y="52.725" width="4.275" height="3.5625" transform="rotate(90 17.8125 52.725)" fill="#6C63FF"/>
+                                <circle cx="36.3375" cy="54.8625" r="2.1375" transform="rotate(90 36.3375 54.8625)" fill="#6C63FF"/>
+                                <rect x="39.9" y="52.725" width="4.275" height="3.5625" transform="rotate(90 39.9 52.725)" fill="#6C63FF"/>
+                                <circle cx="36.3375" cy="2.1375" r="2.1375" transform="rotate(90 36.3375 2.1375)" fill="#6C63FF"/>
+                                <rect x="39.9" width="4.275" height="3.5625" transform="rotate(90 39.9 0)" fill="#6C63FF"/>
+                                <circle cx="54.8625" cy="37.7625" r="2.1375" fill="#6C63FF"/>
+                                <rect x="52.725" y="37.7625" width="4.275" height="3.5625" fill="#6C63FF"/>
+                                <rect y="14.25" width="4.275" height="3.5625" fill="#6C63FF"/>
+                                <circle cx="54.8625" cy="17.8125" r="2.1375" fill="#6C63FF"/>
+                                <rect x="52.725" y="14.25" width="4.275" height="3.5625" fill="#6C63FF"/>
+                                </svg>
+                            </a>
+
+                            <div>
+                                <div class="totalPatientsText2">
+                                    <div class="patientNum">{{ scans|length }}</div>
+                                    <div class="patientText">Scans</div>
+                                </div>
+                            </div>
+
+                        </div>
+                    
+                    
+                </div>
+                <div class="helloBox">
+                    <div class="helloBoxName">
+                        <div class="infoBoxWelcome">Welcome back</div>
+                        <div class="quote">
+                        New day new you!
+                        </div>
+                    </div>
+
+                    <div class="helloBoxDate">
+                        <div class="infoBoxName">{{ request.user.username }}</div>
+                        <div class="day">
+                            <div class="dateDisplay"><span id="day"></span><sup id="suffix" class="day-suffix"></sup></div>
+                            <div class="dateDisplay2" id="monthYear"> </div>
+                        </div>
+                        
+                            
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="sepLine"></div>
+            
+            <div class="rowAlign3">
+                <div class="bottomBox">
+                    <div class="bottomBoxText">Recent Doctors</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="298" height="3" viewBox="0 0 298 3" fill="none">
+                    <path d="M0 1.5H298" stroke="#D9D9D9" stroke-width="2"/>
+                    </svg>
+                    <ul class="boxList">
+                        {% for dr in assigned_doctors %}
+                        <li>
+                        <a class="recentPatientsLink" href="{% url 'doctor_scans' doctor_id=dr.doctor.id %}">{{ dr.doctor.username }}</a>
+                        </li>
+                        {% empty %}
+                        <li>No doctors assigned yet.</li>
+                        {% endfor %}
+                    </ul>
+                    
+                </div>
+                <div class="bottomBoxM">
+                    <div class="bottomBoxText">Recent Messages</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="298" height="3" viewBox="0 0 298 3" fill="none">
+                    <path d="M0 1.5H298" stroke="#D9D9D9" stroke-width="2"/>
+                    </svg>
+                    <ul class="boxList">
+                        {% for comment in latest_comments %}
+                            <li>
+                                {{ comment.scan.doctor.get_full_name|default:comment.scan.doctor.username }}
+                                {{ comment.scan.scan_type }}
+                                {{ comment.timestamp|date:"Y-m-d H:i" }}
+                            </li>
+                        {% empty %}
+                            <li>No recent comments.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="bottomBox">
+                    <div class="tempRow">
+                        <button onclick="addReminder()" class="adedBut">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="10" fill="#6C63FF"/>
+                        <path d="M10 4V16" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M16 10H4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                        <div class="bottomBoxText">Reminders</div>
+                        <button id="editToggleBtn" class="adedBut">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <circle cx="10" cy="10" r="10" fill="#6C63FF"/>
+                        <path d="M15 6L5 6" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M15 10H5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M15 14H5" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="298" height="3" viewBox="0 0 298 3" fill="none">
+                    <path d="M0 1.5H298" stroke="#D9D9D9" stroke-width="2"/>
+                    </svg>
+                    
+                    
+                    <ul class="boxList">
+                          {% for reminder in reminders %}
+                              <li id='reminder-{{ reminder.id }}'>
+                                <input class="reminderBox" type="text"
+                                value="{{ reminder.message }}"
+                                data-id="{{ reminder.id }}"
+                                onblur="saveReminder(this)"
+                                onkeydown="if(event.key === 'Enter'){ this.blur(); }">
+                                <div class="overlayTest">
+                                    <button data-id="{{ reminder.id }}" class="delete-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="10" fill="#6C63FF"/>
+                                        <path d="M16 10H4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                
+                                </li>
+
+                            <!-- <li>Test {{ forloop.counter }}</li> -->
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- <div class="bottomBox">
+                    <div class="bottomBoxText">Reminders</div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="298" height="3" viewBox="0 0 298 3" fill="none">
+                    <path d="M0 1.5H298" stroke="#D9D9D9" stroke-width="2"/>
+                    </svg>
+                    <ul class="boxList">
+                          {% for i in ""|center:15 %}
+                            <li>Test {{ forloop.counter }}</li>
+                        {% endfor %}
+                    </ul>
+                </div> -->
+
+            </div>
+        </div>
+    </div>
+     <script>
+        const searchInput = document.querySelector('.search-input');
+        const overlayWrapper = document.querySelector('.ovPad');
+
+        searchInput.addEventListener('focus', () => {
+            overlayWrapper.style.display = 'block';
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInside = searchInput.contains(event.target) || overlayWrapper.contains(event.target);
+
+            if (!isClickInside) {
+                overlayWrapper.style.display = 'none';
+            }
+        });
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchBox = document.getElementById("searchBox");
+        const overlay = document.getElementById("searchOverlay");
+        const results = document.getElementById("searchResults");
+
+        // Show overlay on focus
+        searchBox.addEventListener("focus", function () {
+            overlay.style.display = "block";
+        });
+
+        // Hide overlay when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!searchBox.contains(event.target) && !overlay.contains(event.target)) {
+                overlay.style.display = "none";
+            }
+        });
+
+        // Filter results as you type
+        searchBox.addEventListener("input", function () {
+            const filter = this.value.toLowerCase();
+            const items = results.getElementsByClassName("search-item");
+            for (let item of items) {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? "" : "none";
+            }
+        });
+    });
+    </script>
+    <script>
+    function addReminder() {
+    fetch('/add_reminder/', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}',
+        },
+    })
+    .then(() => {
+        location.reload();  // Refresh the page to show the new reminder
+    });
+    }
+
+    function saveReminder(input) {
+    const id = input.getAttribute("data-id");
+    const value = input.value;
+
+    fetch(`/update_reminder/${id}/`, {
+        method: "POST",
+        headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': '{{ csrf_token }}',
+        },
+        body: JSON.stringify({ message: value })
+    });
+    }
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        deleteReminder(btn.dataset.id);
+    });
+    });
+
+    function deleteReminder(id) {
+    fetch(`/delete_reminder/${id}/`, {
+        method: 'POST',
+        headers: {
+        'X-CSRFToken': '{{ csrf_token }}',
+        }
+    }).then(response => {
+        if (response.ok) {
+        const reminderItem = document.getElementById(`reminder-${id}`);
+        if (reminderItem) reminderItem.remove();
+        }
+    });
+    }
+    </script>
+    <script>
+    const editBtn = document.getElementById('editToggleBtn');
+    let deleteVisible = false;
+
+    editBtn.addEventListener('click', () => {
+        deleteVisible = !deleteVisible;
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+        btn.style.display = deleteVisible ? 'inline-block' : 'none';
+        });
+    });
+    </script>
+    <script>
+        const timeline = document.querySelector('.timeline');
+        const labelsContainer = timeline.querySelector('.timeline-labels');
+
+        const startHour = 6;
+        const endHour = 24;
+        const interval = 2;
+
+        // Clear existing labels if any
+        labelsContainer.innerHTML = '';
+
+        for (let hour = startHour; hour <= endHour; hour += interval) {
+        const labelContainer = document.createElement('div');
+        labelContainer.classList.add('label-container');
+        
+        // Create SVG line element from your code
+        const svgNS = "http://www.w3.org/2000/svg";
+        const svg = document.createElementNS(svgNS, "svg");
+        svg.setAttribute("width", "1");
+        svg.setAttribute("height", "53");
+        svg.setAttribute("viewBox", "0 0 1 53");
+        svg.setAttribute("fill", "none");
+        
+        const line = document.createElementNS(svgNS, "line");
+        line.setAttribute("x1", "0.5");
+        line.setAttribute("x2", "0.5");
+        line.setAttribute("y1", "0");
+        line.setAttribute("y2", "53");
+        line.setAttribute("stroke", "#D9D9D9");
+        
+        svg.appendChild(line);
+        labelContainer.appendChild(svg);
+        
+        // Format hour as "HH:00"
+        const hourLabel = document.createElement('span');
+        hourLabel.textContent = `${hour.toString().padStart(2, '0')}:00`;
+        
+        labelContainer.appendChild(hourLabel);
+        labelsContainer.appendChild(labelContainer);
+        }
+
+        // Position the red dot
+        const dot = timeline.querySelector('.timeline-dot');
+        const timelineWidth = timeline.clientWidth - 20; // 10px padding each side
+
+        const now = new Date();
+        const currentHour = now.getHours() + now.getMinutes() / 60;
+        const clampedHour = Math.min(Math.max(currentHour, startHour), endHour);
+        const percent = (clampedHour - startHour) / (endHour - startHour);
+        // const leftPos = 10 + percent * timelineWidth;
+        let leftPos;
+        if (currentHour < startHour) {
+        leftPos = 15 + percent * timelineWidth;
+        console.log("In")
+        } else {
+            leftPos = 10 + percent * timelineWidth;
+        }
+        dot.style.left = `${leftPos}px`;
+    </script>
+
+    <script>
+        function getDaySuffix(day) {
+            if (day >= 11 && day <= 13) return 'th';
+            switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+            }
+            }
+
+            const date = new Date();
+            const day = date.getDate();
+            const suffix = getDaySuffix(day);
+            const month = date.toLocaleString('default', { month: 'short' }); // e.g., May
+            const year = date.getFullYear();
+
+            // Update DOM
+            document.getElementById('day').textContent = day;
+            document.getElementById('suffix').textContent = suffix;
+            document.getElementById('monthYear').textContent = `${month} ${year}`;
+    </script>
+    <!-- <h1>Welcome {{ request.user.username }}</h1>
+    <h2>Your Doctors</h2>
+    {% for dr in assigned_doctors %}
+    <li>
+        <a href="{% url 'doctor_scans' doctor_id=dr.doctor.id %}">{{ dr.doctor.username }}</a>
+    </li>
+    {% empty %}
+    <li>No doctors assigned yet.</li>
+    {% endfor %}
+
+    <a href="{% url 'logout' %}">Logout</a> -->
+</body>
+</html>

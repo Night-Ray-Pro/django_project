@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'crispy_forms',
     'bootstrap4',
+    'widget_tweaks',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -1,5 +1,4 @@
-
-
+{% load widget_tweaks %}
 <!DOCTYPE html>
 {% load bootstrap4 %}
 {% load static %}
@@ -8,25 +7,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Registration</title>
-    
-    <link rel="stylesheet" type="text/css" href="{% static 'hello/formtest.min.css' %}" />
+    {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'hello/login.css' %}" />
 </head>
 <body>
-    
-    <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card p-4 shadow rounded" style="min-width: 300px; max-width: 400px; width: 100%;">
-    <h2>Register</h2>     
-    <form method="POST">
-        {% csrf_token %}
-        {% bootstrap_field form.username %}
-        {% bootstrap_field form.email %}
-        {% bootstrap_field form.password %}
-        {% bootstrap_field form.password_confirm %}
-        
-        <button class="btn btn-primary"  type="submit">Register</button>
-    </form>
-    <div>
-    </div>
+    <img src="{% static 'hello/loginPage.svg' %}" class="background-image" alt="Background">
 
+    <div class="overlayLoginForm">
+    <form class="loginForm" method="POST">
+        {% csrf_token %}
+        <div class="loginText">Register an account</div>
+        <div class="sepLine-reg"></div>
+        {% render_field form.username class="custom-input-reg" placeholder="Username" %}
+        {% render_field form.email class="custom-input-reg" placeholder="E-mail" %}
+        {% render_field form.password class="custom-input-reg" placeholder="Password" %}
+        {% render_field form.password_confirm class="custom-input-reg" placeholder="Confirm password" %}
+        <div class="checkboxWrapper">
+            <label class="custom-checkbox">
+                <input type="checkbox" name="agree" required/>
+                <span class="checkbox-style"></span>
+                <div class="checkboxText">I am not a robot</div>
+            </label>
+        </div>
+        <button class="loginButton" type="submit">Register</button>
+    </form>
+    </div>  
 </body>
 </html>

@@ -1,0 +1,734 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #eeeeee ;
+}
+
+.dashUBod {
+    position: relative;
+    width: 1250px;
+    height: 99px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+    margin-bottom: 8px;
+}
+
+.dashLBod {
+    position: relative;
+    width: 1250px;
+    height: 674px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #FFF;
+}
+
+.overlayTop {
+    position: absolute; /* or 'fixed' if you want it to stay during scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlayBottom {
+    position: absolute; /* or 'fixed' if you want it to stay during scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-wrapper {
+  position: relative;
+  
+  width: 906px;
+
+  margin-right: 35px;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.search-input {
+    width: 842px;
+    height: 65px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    border: 2px solid #D9D9D9;
+    padding-left: 60px;
+    font-size: 24px;
+}
+
+.logoutBox {
+    margin-left: 148px;
+    width: 127px;
+    height: 65px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoutButton {
+    margin-left: 25px;
+}
+
+.rowAlign1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1122px;
+    height: 93px;
+}
+
+.sepLine {
+    width: 1122px;
+    height: 2px;
+    background: #DEDCDC;
+    margin-top: 24px;
+    margin-bottom: 29px;
+}
+
+.rowAlign2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1122px;
+    height: 471px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+}
+
+.rowAlign3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 1122px;
+    height: 471px;
+    
+}
+
+.helloBox {
+    margin-left: 120px;
+    width: 366px;
+    height: 68px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #6C63FF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.infoBox2 {
+    height: 70px;
+    width: 324px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    margin-left: 51px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    border-radius: 25px;
+    border: 2px solid #D9D9D9; 
+    
+}
+
+.infoBox {
+    height: 70px;
+    width: 364px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    margin-left: 51px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    border-radius: 25px;
+    border: 2px solid #D9D9D9;  
+}
+
+.dateDisplay {
+    color: #FFF;
+    text-align: center;
+    font-family: Sen;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 10px;
+}
+
+.day-suffix {
+  font-size: 15px;
+  vertical-align: super;
+  line-height: 1;
+  margin-left: 2px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
+.dateDisplay2 {
+  color: #FFF;
+    text-align: center;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.day {
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+
+.helloBoxDate {
+    display: flex;
+    flex-direction: column;
+     align-items: flex-end;
+    justify-content: right;
+    
+    
+}
+
+.helloBoxName {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    width: 190px;
+    
+}
+
+.infoBoxName {
+    color: #FFF;
+    font-family: Sen;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.infoBoxWelcome{
+    color: #FFF;
+    font-family: Sen;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 10px;
+}
+
+.quote {
+    color: #FFF;
+    font-family: Sen;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 10px;
+}
+
+.dashboardText {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 15px;
+    color: #000;
+    font-family: Sen;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.dashboardTextColumn {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+}
+
+.adaptive-box {
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    display: inline-block;      /* Shrinks to fit content */
+    max-width: 700px;           /* Maximum allowed width */
+    font-family: Sen;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    word-wrap: break-word;      /* Breaks long words */
+    white-space: normal;        /* Allows wrapping */
+    height: 45px;
+    flex-shrink: 0; 
+    border-radius: 30px;
+    border: 2px solid #D9D9D9;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 5px;
+    margin-top: 30px;
+}
+
+.totalPatients {
+    width: 205px;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.totalPatientsText {
+    margin-left: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.totalPatientsText2 {
+    margin-left: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+}
+
+.patientNum {
+    
+    text-align: center;
+    font-family: Sen;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.patientText {
+    color: #CAC4C4;
+    text-align: center;
+    font-family: Sen;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.timeline {
+    width: 621px;
+    height: 85px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    margin-left: 36px;
+
+}
+
+.iconBox {
+    width: 190px;
+    height: 93px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    margin-left: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.timeline {
+  position: relative;
+  width: 621px;
+  height: 85px;
+  border-radius: 15px;
+  border: 2px solid #D9D9D9;
+  margin-left: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  user-select: none;
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    color: #cac9c9;
+    text-align: center;
+    font-family: Sen;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: relative;
+}
+
+.timeline-labels .label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  position: relative;
+}
+
+/* SVG container to keep the line */
+.timeline-labels svg {
+  display: block;
+  margin-bottom: 5px;
+  height: 53px;
+  width: 1px;
+}
+
+.timeline-labels span {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Red dot vertically centered overlapping the lines */
+.timeline-dot {
+  position: absolute;
+  top: 40%;
+  width: 47px;      /* match SVG width */
+  height: 47px;     /* match SVG height */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.quickPad {
+    padding-top: 4px;
+    padding-left: 2px;
+}
+
+.bottomBox {
+    width: 342px;
+    height: 471px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.bottomBoxM {
+    width: 342px;
+    height: 471px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    margin-left: 42px;
+    margin-right: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+}
+
+.bottomBoxText {
+    color: #000;
+    text-align: center;
+    font-family: Sen;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: flex;
+    width: 298px;
+    height: 42px;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    
+}
+
+.boxList {
+    list-style-type: none;
+    height: 471px;
+    width: 1067px;
+    padding-left: 0;
+    margin: 0;
+    margin-left: 22px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    /* REMOVE display: flex and flex-direction */
+}
+.boxList li {
+    text-decoration: none;
+    height: 115px;
+    width: 1002px;
+    border-bottom: 1px solid #D9D9D9;
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.recentPatientsLink {
+    text-decoration: none;
+    color: #000;
+}
+
+.vertSep {
+    width: 1px;
+    height: 45px;
+    background: #FFF;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+.sortBox{
+    width: 181px;
+    height: 69px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #6C63FF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 10px;
+}
+
+.logoCorection {
+    margin-top: 4px;
+}
+
+.nameDr {
+    display: flex;
+    width: 230px;
+    
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40px;
+    flex-shrink: 0;
+    color: #000;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.specDr {
+    color: #000;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 5px;
+}
+
+.sepDr {
+    width: 1px;
+    height: 81px;
+    background: #D9D9D9;
+}
+
+.hospDr {
+    display: flex;
+    width: 309px;
+    height: 85px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.hospDesc {
+    display: flex;
+    width: 309px;
+    height: 85px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+.hospSt {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.custom-photo-class {
+    width: 88px;
+    height: 88px;
+    flex-shrink: 0;
+    border-radius: 88px;
+    border: 2px solid #DEDCDC;
+    object-fit: cover;
+}
+
+.sortContainer {
+    position: relative;
+    display: inline-block;
+    
+    z-index: 100;
+}
+
+
+.sortDropdownBtn {
+
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding-right: 20px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+
+    width: 181px;
+    height: 69px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    background: #6C63FF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    gap: 10px;
+}
+
+.sortDropdownBtn:hover {
+    background-color: #756ef9;
+}
+
+
+.sortOptionsOverlay {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    background-color: white;
+    border: 2px solid #6C63FF;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    display: none;
+    width: 181px;
+    border-radius: 15px;
+}
+
+.noClass {
+    height: 1px;
+    margin: 0px;
+    background-color: #D9D9D9;
+    width: 150px;
+    margin-left: 15px;
+    border-radius: 1px;
+
+}
+
+.sortOptionsOverlay div {
+    border-radius: 15px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.sortOptionsOverlay div:hover {
+    background-color: #f1f1f1;
+}
+
+.smallArrow {
+    position: absolute;
+    top: 30px;
+    left: 140px;
+    
+}
+
+.doctorItem {
+    text-decoration: none;
+    color: inherit; /* inherits the text color of the parent */
+    transition: color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.doctorItem:hover {
+    color: #007BFF; /* or any highlight color you like */
+    transform: scale(1.05); /* subtle zoom effect */
+}
+
+.noUnderline {
+    text-decoration: none;
+}
